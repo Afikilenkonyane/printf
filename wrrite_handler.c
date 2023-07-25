@@ -90,7 +90,10 @@ int wrrite_number(int is_neg, int index, char buffer[],
  *
  * Return: Number of chars.
  */
-int wrrite_num(int index, char buffer[], int flags, int width, int prec, int len, char pad, char ext_c)
+int wrrite_num(int index, char buffer[],
+	int flags, int width, int prec,
+	int len, char pad, char ext_c)
+
 {
 	int j, start = 1;
 

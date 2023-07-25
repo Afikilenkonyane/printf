@@ -65,7 +65,7 @@ int prrint_octal(va_list args, char buffer[],
 	int flags, int width, int precision, int size);
 int prrint_hexadecimal(va_list args, char buffer[],
 	int flags, int width, int precision, int size);
-int prrint_hexa_upperr(va_list args, char buffer[],
+int prrint_hexa_upper(va_list args, char buffer[],
 	int flags, int width, int precision, int size);
 
 int prrint_hexa(va_list args, char mapp_to[],

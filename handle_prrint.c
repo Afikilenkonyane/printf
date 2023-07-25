@@ -19,7 +19,7 @@ int handle_prrint(const char *fomt, int *index, va_list args, char buffer[],
 		{'c', prrint_charr}, {'s', prrint_strring}, {'%', prrint_perrcent},
 		{'i', prrint_int}, {'d', prrint_int}, {'b', prrint_binary},
 		{'u', prrint_unsigned}, {'o', prrint_octal}, {'x', prrint_hexadecimal},
-		{'X', prrint_hexa_upperr}, {'p', prrint_pointer}, {'S', prrint_non_printable},
+		{'X', prrint_hexa_upper}, {'p', prrint_pointer}, {'S', prrint_non_printable},
 		{'r', prrint_rreverse}, {'R', prrint_ro13tring}, {'\0', NULL}
 	};
 	for (j = 0; fomt_args[j].fomt != '\0'; j++)
