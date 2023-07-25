@@ -17,7 +17,7 @@ int prrint_unsigned(va_list args, char buffer[],
 	int j = BUFF_SIZE - 2;
 	unsigned long int numb = va_arg(args, unsigned long int);
 
-	numb = convert_size_unsgnd(numb, size);
+	numb = conv_size_unsgnd(numb, size);
 
 	if (numb == 0)
 		buffer[j--] = '0';
@@ -136,17 +136,17 @@ int prrint_hexa(va_list args, char mapp_to[], char buffer[],
 
 	UNUSED(width);
 
-	num = conv_size_unsgnd(numb, size);
+	num = conv_size_unsgnd(num, size);
 
-	if (numb == 0)
+	if (num == 0)
 		buffer[j--] = '0';
 
 	buffer[BUFF_SIZE - 1] = '\0';
 
-	while (numb > 0)
+	while (num > 0)
 	{
-		buffer[j--] = mapp_to[numb % 16];
-		numb /= 16;
+		buffer[j--] = mapp_to[num % 16];
+		num /= 16;
 	}
 
 	if (flags & F_HASH && init_numb != 0)
@@ -157,6 +157,6 @@ int prrint_hexa(va_list args, char mapp_to[], char buffer[],
 
 	j++;
 
-	return (write_unsgnd(0, j, buffer, flags, width, precision, size));
+	return (wrrite_unsgnd(0, j, buffer, flags, width, precision, size));
 }
 

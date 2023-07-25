@@ -74,7 +74,7 @@ int wrrite_number(int is_neg, int index, char buffer[],
 	else if (flags & F_SPACE)
 		ext_ch = ' ';
 
-	return (wrrite_num(index, buffer, flags, width, precision,
+	return (wrrite_numb(index, buffer, flags, width, precision,
 		len, padding, ext_ch));
 }
 /**
@@ -90,9 +90,7 @@ int wrrite_number(int is_neg, int index, char buffer[],
  *
  * Return: Number of chars.
  */
-int wrrite_num(int index, char buffer[],
-	int flags, int width, int prec,
-	int len, char pad, char ext_c)
+int wrrite_num(int index, char buffer[], int flags, int width, int prec, int len, char pad, char ext_c)
 {
 	int j, start = 1;
 

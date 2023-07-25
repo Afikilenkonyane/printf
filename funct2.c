@@ -78,10 +78,10 @@ int prrint_non_printable(va_list args, char buffer[],
 
 	while (spt[j] != '\0')
 	{
-		if (is_printable(spt[j]))
+		if (is_prrintable(spt[j]))
 			buffer[j + toff] = spt[j];
 		else
-			toff += append_hexa_code(spt[j], buffer, j + toff);
+			toff += app_hexa_code(spt[j], buffer, j + toff);
 
 		j++;
 	}

@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 				flags, width, precs, size);
 			if (print == -1)
 				return (-1);
-			printed_char += print;
+			print_char += print;
 		}
 	}
 
@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return (printed_char);
+	return (print_char);
 }
 
 /**

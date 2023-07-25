@@ -113,11 +113,11 @@ int prrint_int(va_list args, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int j = BUFF_SIZE - 2;
-	int is_neg = 0;
+	int index = 0;
 	long int p = va_arg(args, long int);
 	unsigned long int numb;
 
-	p = convert_size_number(p, size);
+	p = conv_size_number(p, size);
 
 	if (p == 0)
 		buffer[j--] = '0';
@@ -128,7 +128,7 @@ int prrint_int(va_list args, char buffer[],
 	if (p < 0)
 	{
 		numb = (unsigned long int)((-1) * p);
-		is_neg = 1;
+		index = 1;
 	}
 
 	while (numb > 0)
@@ -139,7 +139,7 @@ int prrint_int(va_list args, char buffer[],
 
 	j++;
 
-	return (wrrite_numb(is_neg, j, buffer, flags, width, precision, size));
+	return (wrrite_number(index, j, buffer, flags, width, precision, size));
 }
 
 /************************* PRINT BINARY *************************/

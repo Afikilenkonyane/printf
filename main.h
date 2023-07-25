@@ -80,7 +80,7 @@ int prrint_pointer(va_list args, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* Funciotns to specifiers */
-int gmt_flags(const char *format, int *j);
+int gmt_flags(const char *format, int *i);
 int gmt_width(const char *format, int *j, va_list args);
 int gmt_precision(const char *format, int *j, va_list args);
 int gmt_size(const char *format, int *j);

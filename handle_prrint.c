@@ -19,14 +19,14 @@ int handle_prrint(const char *fomt, int *index, va_list args, char buffer[],
 		{'c', prrint_charr}, {'s', prrint_strring}, {'%', prrint_perrcent},
 		{'i', prrint_int}, {'d', prrint_int}, {'b', prrint_binary},
 		{'u', prrint_unsigned}, {'o', prrint_octal}, {'x', prrint_hexadecimal},
-		{'X', prrint_hexa_upper}, {'p', prrint_pointer}, {'S', prrint_non_printable},
-		{'r', prrint_reverse}, {'R', prrint_ro13tring}, {'\0', NULL}
+		{'X', prrint_hexa_upperr}, {'p', prrint_pointer}, {'S', prrint_non_printable},
+		{'r', prrint_rreverse}, {'R', prrint_ro13tring}, {'\0', NULL}
 	};
 	for (j = 0; fomt_args[j].fomt != '\0'; j++)
 		if (fomt[*index] == fomt_args[j].fomt)
 			return (fomt_args[j].fn(args, buffer, flags, width, precision, size));
 
-	if (fomt_types[i].fomt == '\0')
+	if (fomt_args[j].fomt == '\0')
 	{
 		if (fomt[*index] == '\0')
 			return (-1);
