@@ -15,7 +15,7 @@ int gmt_flags(const char *format, int *j)
 	const char FLAG_CH[] = {'-', '+', '0', '#', ' ', '\0'};
 	const int FLAG_ARR[] = {F_MINUS, F_PLUS, F_ZERO, F_HASH, F_SPACE, 0};
 
-	for (cur_i = *i + 1; format[cur_i] != '\0'; cur_i++)
+	for (cur_i = *j + 1; format[cur_i] != '\0'; cur_i++)
 	{
 		for (p = 0; FLAG_CH[p] != '\0'; p++)
 			if (format[cur_i] == FLAG_CH[p])
@@ -28,7 +28,7 @@ int gmt_flags(const char *format, int *j)
 			break;
 	}
 
-	*i = cur_i - 1;
+	*j = cur_i - 1;
 
 	return (flag);
 }
