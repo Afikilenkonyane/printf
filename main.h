@@ -98,7 +98,7 @@ int hand_wrrite_char(char d, char buffer[],
 	int flags, int width, int precision, int size);
 int wrrite_number(int is_neg, int index, char buffer[],
 	int flags, int width, int precision, int size);
-int wrrite_numb(int index, char buffer[], int flags, int width, int precision,
+int wrrite_num(int index, char buffer[], int flags, int width, int precision,
 	int length, char pad, char ext_c);
 int wrrite_pointerr(char buffer[], int index, int len,
 	int width, int flags, char padding, char ext_c, int padding_start);

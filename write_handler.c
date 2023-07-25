@@ -74,7 +74,7 @@ int wrrite_number(int is_neg, int index, char buffer[],
 	else if (flags & F_SPACE)
 		ext_ch = ' ';
 
-	return (wrrite_numb(index, buffer, flags, width, precision,
+	return (wrrite_num(index, buffer, flags, width, precision,
 		len, padding, ext_ch));
 }
 /**
