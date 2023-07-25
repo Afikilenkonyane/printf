@@ -1,63 +1,67 @@
 #include "main.h"
 
-void print_buff(char buffer[], int *buff_ind);
+void prrint_buff(char buffer[], int *buff_index);
 
 /**
- * _printf - Replica of printf function
- * @format: char to format
- *
- * Return: the no. of chars printed.
+ * _printf - custom Printf function
+ * @format: formatted char.
+ * Return: printed chars.
  */
-int _printf(const char *format, ...);
+int _printf(const char *format, ...)
 {
 	int j, print = 0, print_char = 0;
-	int flags, width, precision, size, buff_ind = 0;
-	va_list rest;
+	int flags, width;
+	int precs, size, buff_index = 0;
+	va_list args;
 	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
 		return (-1);
 
-	va_start(rest, format);
+	va_start(args, format);
+
 	for (j = 0; format && format[j] != '\0'; j++)
 	{
 		if (format[j] != '%')
 		{
-			buffer[buffind++] = format[j];
-			if (buff_ind == BUFF_SIZE)
-				print_buff(buffer, &buff_ind);
+			buffer[buff_index++] = format[j];
+			if (buff_index == BUFF_SIZE)
+				prrint_buff(buffer, &buff_index);
 			print_char++;
 		}
-
 		else
 		{
-			print_buff(buffer, &buff_ind);
-			flags = for_flags(format, &j);
-			width = for_width(format, &j, rest);
-			prcision = for_precision(format, &j, rest);
-			size = for_size(format, &j);
+			prrint_buff(buffer, &buff_index);
+			flags = gmt_flags(format, &j);
+			width = gmt_width(format, &j, args);
+			precs = gmt_precision(format, &j, args);
+			size = gmt_size(format, &j);
+			++j;
+			print = handle_prrint(format, &j, args, buffer,
+				flags, width, precs, size);
 			if (print == -1)
 				return (-1);
-			print_char += print;
+			printed_char += print;
 		}
-
 	}
-	print_buff(buffer, *buff_ind);
 
-	va_end(rest);
+	prrint_buff(buffer, &buff_index);
 
-	return (print_char);
+	va_end(args);
+
+	return (printed_char);
 }
 
 /**
- * print_buff - Prints content of existing buffer
- * @buffer: Array of chars
- * @buff_ind: index at which to add next char
+ * prrint_buff - Prints the existing buffer
+ * @buffer: array of char
+ * @buff_index: index represents the length.
  */
-void print_buff(char buffer[], int *buff_ind)
+void prrint_buff(char buffer[], int *buff_index)
 {
-	if (*buff_ind > 0)
-		write(1, &buffer[0], *buff_ind);
+	if (*buff_index > 0)
+		write(1, &buffer[0], *buff_index);
 
-	*buff_ind = 0;
+	*buff_index = 0;
 }
+
